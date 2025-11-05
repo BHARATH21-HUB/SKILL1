@@ -10,27 +10,17 @@ Personal computer with Keil software
 
 ## ALGORITHM
 
-Initialize pointer register (R0) to the starting address of the 5 numbers (e.g., 30H).
-
-Clear accumulator A to 00H (will hold running sum).
-
-Load counter (R1) with 05 (number of data elements).
-
-Loop:
-
-Save the current sum into B (MOV B,A).
-
-Load the current data byte from memory pointed by R0 into A (MOV A,@R0).
-
-Add previous sum (in B) to current number (ADD A,B) → new running sum in A.
-
-Increment pointer R0 to next data byte.
-
-Decrement counter R1 and repeat loop until zero.
-
-Store final sum from A into a chosen internal RAM location (e.g., 35H).
-
-End / infinite loop or RET.
+1. Initialize pointer register (R0) to the starting address of the 5 numbers (e.g., 30H).
+2. Clear accumulator A to 00H (will hold running sum).
+3. Load counter (R1) with 05 (number of data elements).
+4. Loop:
+5. Save the current sum into B (MOV B,A).
+6. Load the current data byte from memory pointed by R0 into A (MOV A,@R0).
+7. Add previous sum (in B) to current number (ADD A,B) → new running sum in A.
+8. Increment pointer R0 to next data byte.
+9. Decrement counter R1 and repeat loop until zero.
+10. Store final sum from A into a chosen internal RAM location (e.g., 35H).
+11. End / infinite loop or RET.
 
 ## PROGRAME
 ```
