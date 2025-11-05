@@ -22,20 +22,27 @@ Personal computer with Keil software
 10. Store final sum from A into a chosen internal RAM location (e.g., 35H).
 11. End / infinite loop or RET.
 
+
 ## PROGRAME
+
 ```
 ORG 0000H
-MOV RO, #30H
-MOV R1, #5
-CLR A
-SUM LOOP:
-MOV B, A
-MOV A, @RO
-ADD A, B
-INC RO
-DJNZ R1, SUM_LOOP
-MOV 35H, A
+
+MOV R0, #30H      ; Pointer to first number
+MOV R1, #5        ; Number count
+CLR A             ; Clear accumulator for sum
+
+SUM_LOOP:
+    MOV B, A      ; Save sum temporarily in B
+    MOV A, @R0    ; Load current number
+    ADD A, B      ; Add previous sum from B
+    INC R0        ; Next number
+    DJNZ R1, SUM_LOOP
+
+MOV 35H, A        ; Store result
+
 END
+
 ```
 ## OUTPUT
 
